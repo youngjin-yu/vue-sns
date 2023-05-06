@@ -1,6 +1,6 @@
 module.exports = {
   head: {
-    title: 'vue-sns',
+    title: 'vue-sns',//layout head 중복 제거
     meta: [{
       charset: 'utf-8',
     }, {

@@ -4,11 +4,11 @@
       <v-form ref="form" v-model="valid" @submit.prevent="onSubmitForm">
         <v-container>
           <v-text-field
-            v-model="userId"
+            v-model="email"
             :rules="userIdRules"
             label="아이디"
             required
-          />
+          /><!--v-text-field -> input 역할-->
           <v-text-field
             v-model="password"
             :rules="passwordRules"
@@ -28,9 +28,7 @@
         {{me.nickname}}님 로그인되었습니다.
         <v-btn @click="onLogOut">로그아웃</v-btn>
         <v-row>
-          <v-col cols="4">{{me.Followings.length}} 팔로잉</v-col>
-          <v-col cols="4">{{me.Followers.length}} 팔로워</v-col>
-          <v-col cols="4">{{me.Posts.length}} 게시글</v-col>
+
         </v-row>
       </v-container>
     </v-card>
@@ -42,7 +40,7 @@
     data() {
       return {
         valid: false,
-        userId: '',
+        email: '',
         password: '',
         userIdRules: [
           v => !!v || '아이디는 필수입니다.',
@@ -61,8 +59,9 @@
       onSubmitForm() {
         if (this.$refs.form.validate()) {
           this.$store.dispatch('users/logIn', {
-            userId: this.userId,
+            email: this.email,
             password: this.password,
+            nickname:'test',
           });
         }
       },
