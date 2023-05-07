@@ -32,21 +32,22 @@ export default {
       return this.$store.state.posts.hasMorePost;
     }
   },
+  //fetch : 컴포넌트가 mount 되기 전에 실행된다.
   fetch({ store }) {
-    //store.dispatch('posts/loadPosts');
+    store.dispatch('posts/loadPosts');
   },
   mounted() {
-    //window.addEventListener('scroll', this.onScroll);
+    window.addEventListener('scroll', this.onScroll);
   },
   beforeDestroy() {
-    //window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('scroll', this.onScroll);
   },
   methods: {
     onScroll() {
       console.log('scroll');
       if (window.scrollY + document.documentElement.clientHeight > document.documentElement.scrollHeight - 300) {
         if (this.hasMorePost) {
-          //this.$store.dispatch('posts/loadPosts');
+          this.$store.dispatch('posts/loadPosts');
         }
       }
     },
