@@ -17,11 +17,11 @@ module.exports = {
     }, {
       hid: 'ogtype', property: 'og:type', content: 'website',
     }, {
-      hid: 'ogimage', property: 'og:image', content: 'https://vue.nodebird.com/vue-nodebird.png',
+      hid: 'ogimage', property: 'og:image', content: 'https://vue.vuesns.com/vue-vuesns.png',
     }, {
-      hid: 'ogurl', property: 'og:url', content: 'https://vue.nodebird.com',
+      hid: 'ogurl', property: 'og:url', content: 'https://vue.vuesns.com',
     }],
-    link: [{ rel: 'shortcut icon', href: '/vue-nodebird.png' }],
+    link: [{ rel: 'shortcut icon', href: '/vuesns.png' }],
   },
   modules: [
     '@nuxtjs/axios',
@@ -44,8 +44,8 @@ module.exports = {
   },
   vuetify: {},
   axios: {
-    browserBaseURL: process.env.NODE_ENV === 'production' ? 'https://api.nodebird.com/api' : 'http://localhost:3085',
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://api.nodebird.com/api' : 'http://localhost:3085',
+    browserBaseURL: process.env.NODE_ENV === 'production' ? 'https://api.vuesns.com/api' : 'http://localhost:3085',
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://api.vuesns.com/api' : 'http://localhost:3085',
     https: false,
   },
   server: {
