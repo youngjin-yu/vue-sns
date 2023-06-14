@@ -1,27 +1,27 @@
 module.exports = {
   head: {
-    title: 'vue-sns',//layout head 중복 제거
+    title: 'VueSns',
     meta: [{
-      charset: 'utf-8',
+      charset: 'UTF-8',
     }, {
       name: 'viewport',
       content: 'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes,viewport-fit=cover',
     }, {
       'http-equiv': 'X-UA-Compatible', content: 'IE=edge',
     }, {
-      hid: 'desc', name: 'description', content: 'vue-sns',
+      name: 'description', content: 'VueSns',
     }, {
-      hid: 'ogtitle', name: 'og:title', content: 'vue-sns',
+      name: 'og:title', content: 'VueSns',
     }, {
-      hid: 'ogdesc', name: 'og:description', content: 'vue-sns',
+      name: 'og:description', content: 'VueSns',
     }, {
-      hid: 'ogtype', property: 'og:type', content: 'website',
+      property: 'og:type', content: 'website',
     }, {
-      hid: 'ogimage', property: 'og:image', content: 'https://vue.vuesns.com/vue-vuesns.png',
-    }, {
-      hid: 'ogurl', property: 'og:url', content: 'https://vue.vuesns.com',
+      property: 'og:image', content: 'https://vue.VueSns.com/vue-VueSns.png',
     }],
-    link: [{ rel: 'shortcut icon', href: '/vuesns.png' }],
+    link: [
+      { rel: 'shortcut icon', href: '/vue-VueSns.png' },
+    ],
   },
   modules: [
     '@nuxtjs/axios',
@@ -30,22 +30,19 @@ module.exports = {
     '@nuxtjs/vuetify',
     '@nuxtjs/moment',
   ],
+  vuetify: {},
   moment: {
     locales: ['ko'],
   },
   build: {
     analyze: false,
-    extend(config, { isClient, isServer, isDev }) {
-      if (isServer && !isDev) {
-        config.devtool = 'hidden-source-map';
-      }
-      console.log('webpack', config, isServer, isClient);
+    extend(config, { isClient }) {
+      console.log('webpack', config);
     },
   },
-  vuetify: {},
   axios: {
-    browserBaseURL: process.env.NODE_ENV === 'production' ? 'https://api.vuesns.com/api' : 'http://localhost:3085',
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://api.vuesns.com/api' : 'http://localhost:3085',
+    browserBaseURL: 'https://api.vuesns.com/api',
+    baseURL: 'https://api.vuesns.com/api',
     https: false,
   },
   server: {

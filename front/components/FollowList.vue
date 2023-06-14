@@ -1,15 +1,15 @@
 <template>
   <v-list>
-    <v-col v-for="user in users" :key="user.id" cols="12" md="4" style="display: inline-block">
+    <v-col v-for="l in list" :key="l.nickname" cols="12" md="4" style="display: inline-block">
       <v-list-item>
         <v-list-item-avatar color="indigo">
-          <span class="white--text headline">{{user.nickname}}</span>
+          <span class="white--text headline">{{ l.nickname[0] }}</span>
         </v-list-item-avatar>
         <v-list-item-content>
-          <v-list-item-title>{{user.nickname}}</v-list-item-title>
+          <v-list-item-title>{{ l.nickname }}</v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
-          <v-icon @click="remove(user.id)">mdi-minus-circle-outline</v-icon>
+          <v-icon @click="onRemoveUser(l.id)">mdi-minus-circle-outline</v-icon>
         </v-list-item-action>
       </v-list-item>
     </v-col>
@@ -19,19 +19,14 @@
 <script>
   export default {
     props: {
-      abc: Array,
-      users: {
+      list: {
         type: Array,
         required: true,
       },
-      remove: {
+      onRemoveUser: {
         type: Function,
         required: true,
-      }
+      },
     },
-  }
+  };
 </script>
-
-<style>
-
-</style>
